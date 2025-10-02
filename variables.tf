@@ -20,9 +20,19 @@ variable "security_group" {
 
 variable "instances" {
   default = {
-    jenkins-master     = "t2.medium"
-    jenkins-dev-slave  = "t2.medium"
-    jenkins-prod-slave = "t2.medium"
+    master  = "t2.medium"
+    dev     = "t2.medium"
+    prod    = "t2.medium"
+  }
+}
+
+# New variable to control the EC2 Name tags
+variable "instance_tags" {
+  type = map(string)
+  default = {
+    master  = "jenkins-master"
+    dev     = "Dev-Slave"
+    prod    = "Prod-Slave"
   }
 }
 
